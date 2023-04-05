@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adminpanel</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('favicons/apple-touch-icon.png') %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path('favicons/favicon-32x32.png') %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path('favicons/favicon-16x16.png') %>">
+    <link rel="shortcut icon" type="image/x-icon" href="<%= asset_path('favicons/favicon.ico') %>">
+    <link rel="manifest" href="<%= asset_path('favicons/manifest.json') %>">
+    <meta name="msapplication-TileImage" content="<%= asset_path('favicons/mstile-150x150.png') %>">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="<%= asset_path('lib/bootstrap/css/bootstrap.min.css') %>" rel="stylesheet">
+    
+
+   
+
+    <!-- Template Stylesheet -->
+    <link href="<%= asset_path('style.css') %>" rel="stylesheet">
+    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+
+  </head>
+
+  <body>
+   <% if notice.nil? == false %>
+    <div class="alert alert-warning alert-dismissible fade show mb-0 password-changed-notice" role="alert">
+      <strong><%= notice %></strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="<%= asset_path('main.js') %>"></script>
+  </body>
+</html>
